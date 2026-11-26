@@ -14,7 +14,6 @@ html{font-size:16px;-webkit-text-size-adjust:100%}
 button{touch-action:manipulation;-webkit-tap-highlight-color:transparent;font-family:inherit}
 body{margin:0;padding-bottom:env(safe-area-inset-bottom,0px);background:radial-gradient(1200px 500px at 50% -120px,#FFE9A6,transparent 70%),var(--bg);color:var(--ink);font:1.15rem/1.5 "Sarabun",Tahoma,sans-serif;-webkit-font-smoothing:antialiased}
 
-/* หัวเรื่อง */
 header{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--red) 0%,var(--red-d) 100%);color:#fff;padding:26px 20px 58px;text-align:center}
 header::before,header::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
 header::before{width:260px;height:260px;right:-70px;top:-120px;background:radial-gradient(circle,#FFC72C66,transparent 68%)}
@@ -25,7 +24,6 @@ header p::before{content:"";display:block;width:44px;height:3px;border-radius:3p
 
 main{position:relative;width:min(620px,calc(100% - 24px));margin:-34px auto 44px;background:#fff;border-radius:22px;padding:14px 24px 28px;box-shadow:0 10px 32px rgba(120,60,0,.15)}
 
-/* แถบความคืบหน้า */
 .bar{position:sticky;top:10px;z-index:5;display:flex;align-items:center;gap:12px;margin:0 0 6px;padding:11px 14px 12px 16px;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;box-shadow:0 4px 14px rgba(120,60,0,.1)}
 .prog{flex:1;min-width:0}
 #ptxt{display:block;white-space:nowrap;font-size:1.05rem;font-weight:700;color:var(--muted);line-height:1.35;margin-bottom:7px}
@@ -36,16 +34,13 @@ main{position:relative;width:min(620px,calc(100% - 24px));margin:-34px auto 44px
 #snd{flex:none;display:grid;place-items:center;width:38px;height:38px;border:1.5px solid var(--line);background:#fff;border-radius:50%;font-size:1.1rem;line-height:1;padding:0;cursor:pointer;transition:background .15s,transform .15s}
 #snd:hover{background:var(--yellow-t);transform:scale(1.06)}
 
-/* หัวข้อส่วน */
 .section-title{margin:18px 0 4px;padding:10px 14px;background:var(--yellow);color:#3d1f00;border-radius:12px;font-weight:700;font-size:1.1rem;line-height:1.4}
 .sub-title{margin:14px 0 2px;color:var(--red);font-weight:700;font-size:1.05rem}
 
-/* กล่องคำชี้แจง */
 .legend{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 6px;padding:10px 12px;background:var(--yellow-t);border:1px solid var(--line);border-radius:12px;font-size:1rem;line-height:1.5}
 .legend span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:2px 10px;white-space:nowrap}
 .legend b{color:var(--red)}
 
-/* คำถาม */
 form{counter-reset:q}
 .q{position:relative;counter-increment:q;padding:16px 0 18px 2.6rem;border-bottom:1px solid var(--line)}
 .q:last-of-type{border-bottom:0}
@@ -56,13 +51,11 @@ form{counter-reset:q}
 .lbl,.q label{display:block;font-weight:700;font-size:1.15rem;line-height:1.4;margin-bottom:9px;padding-top:2px}
 .opt{color:var(--muted);font-weight:400;font-size:1rem}
 
-/* ตัวเลือกฐานะ */
 .chips{display:flex;flex-wrap:wrap;gap:7px}
 .chips button{font-size:1.05rem;line-height:1.4;padding:4px 16px 5px;border:1.5px solid var(--line);border-radius:99px;background:#fff;color:var(--ink);cursor:pointer;transition:transform .15s,background .15s,border-color .15s,box-shadow .15s}
 .chips button:hover{border-color:var(--yellow-d);background:var(--yellow-t)}
 .chips button[aria-checked="true"]{background:var(--red);border-color:var(--red);color:#fff;transform:scale(1.05);box-shadow:0 4px 12px rgba(218,41,28,.3)}
 
-/* ตารางคะแนน 5 ระดับ */
 .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .scale button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:64px;padding:6px 2px;border:1.5px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;color:var(--ink);transition:transform .15s,background .15s,border-color .15s,box-shadow .15s}
 .scale button:hover{border-color:var(--yellow-d);background:var(--yellow-t)}
@@ -82,6 +75,7 @@ input[type=text],textarea{width:100%;font:inherit;font-size:1.1rem;padding:10px 
 textarea{min-height:84px;resize:vertical}
 input[type=text]::placeholder,textarea::placeholder{color:#b5a58f}
 input:focus,textarea:focus,button:focus-visible{outline:3px solid #FFC72C88;outline-offset:2px;border-color:var(--red)}
+.q.bad input{border-color:var(--red);background:#fff1ef}
 
 #send{display:block;width:100%;margin-top:18px;padding:10px 10px 11px;font-weight:700;font-size:1.3rem;letter-spacing:.3px;color:#fff;background:#d9c9a8;border:0;border-radius:14px;cursor:pointer;transition:background .3s,transform .15s}
 #send.ready{background:linear-gradient(135deg,var(--red),var(--red-d));color:#fff;animation:glow 1.6s ease-in-out infinite}
@@ -90,7 +84,6 @@ input:focus,textarea:focus,button:focus-visible{outline:3px solid #FFC72C88;outl
 #send:disabled{opacity:.6;cursor:wait;animation:none}
 #err{color:var(--red);font-weight:700;font-size:1.05rem;min-height:1.4em;margin-top:10px}
 
-/* หน้าขอบคุณ */
 #thanks{display:none;text-align:center;padding:30px 0 10px}
 #thanks .big{font-size:3.2rem;line-height:1;display:inline-block;animation:pop .9s cubic-bezier(.3,1.8,.5,1)}
 #thanks h2{margin:10px 0 4px;font-size:1.7rem;line-height:1.25;color:var(--red)}
@@ -100,7 +93,7 @@ canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-/* มือถือ */
+/* มือถือ: หัวเรื่องและรายวิชาแสดงบรรทัดละ 1 (รวม 2 บรรทัดต่อส่วน) */
 @media (max-width:480px){
   main{padding:12px 16px 24px;border-radius:18px}
   .q{padding-left:2.4rem}
@@ -108,8 +101,9 @@ canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index
   .scale button{min-height:58px;padding:4px 1px}
   .scale button .n{font-size:1.2rem}
   .scale button .t{font-size:.68rem}
-  header{padding:22px 16px 52px}
-  header h1{font-size:1.45rem}
+  header{padding:22px 8px 52px}
+  header h1{font-size:min(1.45rem,5.2vw);white-space:nowrap}
+  header p{font-size:min(1.02rem,4.1vw);white-space:nowrap}
 }
 @media (max-width:300px){
   .bar{padding:9px 10px 10px 12px;gap:8px}
@@ -119,13 +113,11 @@ canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index
 }
 @media (pointer:coarse){.chips button{min-height:42px}#send{min-height:50px}}
 
-/* แท็บเล็ต */
 @media (min-width:768px){
   html{font-size:18px}
   main{width:min(760px,calc(100% - 48px));padding:16px 34px 32px}
   header{padding:34px 24px 68px}
 }
-/* โน้ตบุ๊ก / ไอแพดแนวนอน */
 @media (min-width:1024px){
   html{font-size:20px}
   main{width:min(1000px,calc(100% - 64px));margin-top:-56px;padding:18px 48px 40px;border-radius:26px}
@@ -153,8 +145,8 @@ canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index
 
 <form id="f" novalidate>
   <div class="section-title">ส่วนที่ 1 : ข้อมูลทั่วไปของผู้ประเมิน</div>
-  <div class="q w"><label for="name">ชื่อ - นามสกุล</label><input type="text" id="name" placeholder="เช่น สมหญิง ใจดี" autocomplete="name"></div>
-  <div class="q w"><label for="sid">รหัสนักศึกษา <span class="opt">(อาจารย์/บุคคลภายนอกเว้นว่าง หรือใส่ - ได้)</span></label><input type="text" id="sid" placeholder="เช่น 6501234567"></div>
+  <div class="q w" data-key="name"><label for="name">ชื่อ - นามสกุล</label><input type="text" id="name" placeholder="เช่น สมหญิง ใจดี" autocomplete="name"></div>
+  <div class="q w" data-key="sid"><label for="sid">รหัสนักศึกษา <span class="opt">(อาจารย์/บุคคลภายนอก ให้ใส่ - )</span></label><input type="text" id="sid" placeholder="เช่น 6501234567"></div>
   <div class="q w"><span class="lbl">ท่านเข้าร่วมชมนิทรรศการในฐานะใด? <span class="opt">(เลือก 1 ข้อ)</span></span><div class="chips" data-key="role" role="radiogroup" aria-label="ฐานะ"></div></div>
 
   <div class="section-title">ส่วนที่ 2 : ความพึงพอใจต่อผลงานสื่อการสอน</div>
@@ -197,7 +189,7 @@ const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx6RGIJYPbovpg_IZFEg
 const ROLES = ["อาจารย์ผู้สอน / คณะกรรมการประเมิน","นักเรียน/นักศึกษา","บุคลากร / ผู้สนใจทั่วไป"];
 const SCORE_Q = ["q1","q2","q3","q4","q5","q6","q7"];
 const SCALE = [[5,"มากที่สุด"],[4,"มาก"],[3,"ปานกลาง"],[2,"น้อย"],[1,"น้อยที่สุด"]];
-const REQUIRED = ["role", ...SCORE_Q];
+const REQUIRED = ["name","sid","role", ...SCORE_Q];   /* ทั้งหมด 10 ข้อ */
 const ans = {};
 const $ = id => document.getElementById(id);
 
@@ -232,6 +224,18 @@ document.querySelectorAll(".scale").forEach(box=>{
   });
 });
 
+/* ---------- ช่องกรอกชื่อ / รหัส ---------- */
+["name","sid"].forEach(k=>{
+  const el=$(k);
+  el.addEventListener("input",()=>{
+    const had=!!ans[k];
+    ans[k]=el.value.trim();
+    el.closest(".q").classList.remove("bad");
+    if(ans[k]&&!had)tick();
+    refresh(k);
+  });
+});
+
 /* ---------- เสียง (สังเคราะห์เอง ไม่ใช้ไฟล์) ---------- */
 let AC=null,sound=true;
 try{if(localStorage.getItem("snd")==="0")sound=false}catch(e){}
@@ -250,11 +254,15 @@ $("total").textContent=REQUIRED.length;
 let ready=false;
 function refresh(key){
   const box=document.querySelector('[data-key="'+key+'"]');
-  if(box)box.closest(".q").classList.add("done");
+  if(box)box.closest(".q").classList.toggle("done",!!ans[key]);
   const d=REQUIRED.filter(k=>ans[k]).length;
   $("fill").style.width=(d/REQUIRED.length*100)+"%";
   $("ptxt").innerHTML="ตอบแล้ว <b>"+d+"</b>/"+REQUIRED.length+" ข้อ";
-  if(d===REQUIRED.length&&!ready){ready=true;$("bar").classList.add("full");$("send").classList.add("ready");setTimeout(readySound,250)}
+  const all=d===REQUIRED.length;
+  $("bar").classList.toggle("full",all);
+  $("send").classList.toggle("ready",all);
+  if(all&&!ready){ready=true;setTimeout(readySound,250)}
+  if(!all)ready=false;
 }
 function burst(btn,n){for(let i=0;i<n*2+2;i++){const s=document.createElement("i");s.className="sp";s.textContent=i%2?"✦":"★";const a=Math.random()*6.28,r=28+Math.random()*32;s.style.setProperty("--dx",Math.cos(a)*r+"px");s.style.setProperty("--dy",Math.sin(a)*r+"px");btn.appendChild(s);setTimeout(()=>s.remove(),750)}}
 
@@ -262,8 +270,9 @@ function burst(btn,n){for(let i=0;i<n*2+2;i++){const s=document.createElement("i
 $("f").addEventListener("submit",async e=>{
   e.preventDefault();
   const err=$("err"),send=$("send");
-  const name=$("name").value.trim();
-  if(!name){err.textContent="กรุณากรอกชื่อ - นามสกุล";$("name").focus();return}
+  const name=$("name").value.trim(), sid=$("sid").value.trim();
+  if(!name){err.textContent="กรุณากรอกชื่อ - นามสกุล";$("name").closest(".q").classList.add("bad");$("name").focus();return}
+  if(!sid){err.textContent="กรุณากรอกรหัสนักศึกษา (อาจารย์/บุคคลภายนอกให้ใส่ - )";$("sid").closest(".q").classList.add("bad");$("sid").focus();return}
   if(REQUIRED.some(k=>!ans[k])){err.textContent="กรุณาตอบข้อที่จำเป็นให้ครบ";return}
   err.textContent="";send.disabled=true;send.textContent="กำลังส่ง...";
 
@@ -271,7 +280,7 @@ $("f").addEventListener("submit",async e=>{
   SCORE_Q.forEach(k=>scores[k]=ans[k]);
   const payload={
     name,
-    studentId:($("sid").value.trim()||"-"),
+    studentId:sid,
     role:ans.role,
     scores,
     strengths:$("strengths").value.trim(),
