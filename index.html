@@ -8,99 +8,105 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--maroon:#9b3432;--maroon-d:#7a2523;--maroon-t:#f6e9e7;--gold:#f0b429;--green:#2e9d5b;--ink:#2a2220;--muted:#6f6360;--line:#ece3e0;--bg:#faf5f2}
+:root{--yellow:#FFC72C;--yellow-d:#F2B705;--yellow-t:#FFF6D6;--red:#DA291C;--red-d:#B71C12;--ink:#2a1d14;--muted:#6b5b4e;--line:#f0e4c4;--bg:#FFFBF0;--green:#2e9d5b}
 *{box-sizing:border-box}
 html{font-size:16px;-webkit-text-size-adjust:100%}
 button{touch-action:manipulation;-webkit-tap-highlight-color:transparent;font-family:inherit}
-body{margin:0;padding-bottom:env(safe-area-inset-bottom,0px);background:radial-gradient(1200px 500px at 50% -120px,#f3e3df,transparent 70%),var(--bg);color:var(--ink);font:1.15rem/1.5 "Sarabun",Tahoma,sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;padding-bottom:env(safe-area-inset-bottom,0px);background:radial-gradient(1200px 500px at 50% -120px,#FFE9A6,transparent 70%),var(--bg);color:var(--ink);font:1.15rem/1.5 "Sarabun",Tahoma,sans-serif;-webkit-font-smoothing:antialiased}
 
 /* หัวเรื่อง */
-header{position:relative;overflow:hidden;background:linear-gradient(135deg,#a63a37 0%,#7a2523 100%);color:#fff;padding:26px 20px 58px;text-align:center}
+header{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--red) 0%,var(--red-d) 100%);color:#fff;padding:26px 20px 58px;text-align:center}
 header::before,header::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
-header::before{width:260px;height:260px;right:-70px;top:-120px;background:radial-gradient(circle,#f0b42955,transparent 68%)}
+header::before{width:260px;height:260px;right:-70px;top:-120px;background:radial-gradient(circle,#FFC72C66,transparent 68%)}
 header::after{width:220px;height:220px;left:-80px;bottom:-130px;background:radial-gradient(circle,#ffffff22,transparent 68%)}
 header h1{position:relative;margin:0 0 6px;font-size:1.7rem;font-weight:700;line-height:1.25}
-header p{position:relative;margin:0;opacity:.92;font-size:1.02rem;line-height:1.5}
-header p::before{content:"";display:block;width:44px;height:3px;border-radius:3px;background:var(--gold);margin:0 auto 10px}
+header p{position:relative;margin:0;opacity:.95;font-size:1.02rem;line-height:1.5}
+header p::before{content:"";display:block;width:44px;height:3px;border-radius:3px;background:var(--yellow);margin:0 auto 10px}
 
-main{position:relative;width:min(620px,calc(100% - 24px));margin:-34px auto 44px;background:#fff;border-radius:22px;padding:14px 24px 28px;box-shadow:0 10px 32px rgba(80,30,28,.13)}
+main{position:relative;width:min(620px,calc(100% - 24px));margin:-34px auto 44px;background:#fff;border-radius:22px;padding:14px 24px 28px;box-shadow:0 10px 32px rgba(120,60,0,.15)}
 
 /* แถบความคืบหน้า */
-.bar{position:sticky;top:10px;z-index:5;display:flex;align-items:center;gap:12px;margin:0 0 6px;padding:11px 14px 12px 16px;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;box-shadow:0 4px 14px rgba(80,30,28,.08)}
+.bar{position:sticky;top:10px;z-index:5;display:flex;align-items:center;gap:12px;margin:0 0 6px;padding:11px 14px 12px 16px;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;box-shadow:0 4px 14px rgba(120,60,0,.1)}
 .prog{flex:1;min-width:0}
 #ptxt{display:block;white-space:nowrap;font-size:1.05rem;font-weight:700;color:var(--muted);line-height:1.35;margin-bottom:7px}
-#ptxt b{color:var(--maroon);font-size:1.2rem}
-.track{position:relative;height:8px;background:#f0e7e3;border-radius:8px;overflow:hidden}
-.fill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--gold),#e0762f 55%,var(--maroon));transition:width .45s cubic-bezier(.3,1.2,.5,1)}
+#ptxt b{color:var(--red);font-size:1.2rem}
+.track{position:relative;height:8px;background:#f5ecd2;border-radius:8px;overflow:hidden}
+.fill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--yellow),#FFA400 60%,var(--red));transition:width .45s cubic-bezier(.3,1.2,.5,1)}
 .bar.full .fill{background:linear-gradient(90deg,#46b878,var(--green))}
 #snd{flex:none;display:grid;place-items:center;width:38px;height:38px;border:1.5px solid var(--line);background:#fff;border-radius:50%;font-size:1.1rem;line-height:1;padding:0;cursor:pointer;transition:background .15s,transform .15s}
-#snd:hover{background:var(--maroon-t);transform:scale(1.06)}
+#snd:hover{background:var(--yellow-t);transform:scale(1.06)}
 
-/* ส่วนหัวของแต่ละหมวด */
-.section-title{margin:18px 0 4px;padding:10px 14px;background:var(--maroon-t);color:var(--maroon);border-radius:12px;font-weight:700;font-size:1.1rem;line-height:1.4}
+/* หัวข้อส่วน */
+.section-title{margin:18px 0 4px;padding:10px 14px;background:var(--yellow);color:#3d1f00;border-radius:12px;font-weight:700;font-size:1.1rem;line-height:1.4}
+.sub-title{margin:14px 0 2px;color:var(--red);font-weight:700;font-size:1.05rem}
+
+/* กล่องคำชี้แจง */
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 6px;padding:10px 12px;background:var(--yellow-t);border:1px solid var(--line);border-radius:12px;font-size:1rem;line-height:1.5}
+.legend span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:2px 10px;white-space:nowrap}
+.legend b{color:var(--red)}
 
 /* คำถาม */
 form{counter-reset:q}
 .q{position:relative;counter-increment:q;padding:16px 0 18px 2.6rem;border-bottom:1px solid var(--line)}
 .q:last-of-type{border-bottom:0}
-.q::before{content:counter(q);position:absolute;left:0;top:1.05rem;width:1.75rem;height:1.75rem;border-radius:50%;background:var(--maroon-t);color:var(--maroon);font-weight:700;line-height:1.75rem;text-align:center;transition:background .25s,color .25s}
+.q::before{content:counter(q);position:absolute;left:0;top:1.05rem;width:1.75rem;height:1.75rem;border-radius:50%;background:var(--yellow-t);color:var(--red);font-weight:700;line-height:1.75rem;text-align:center;transition:background .25s,color .25s}
 .q.done::before{content:"✓";background:var(--green);color:#fff;animation:pop .5s cubic-bezier(.3,1.8,.5,1)}
 .q.cm{counter-increment:none;border-bottom:0}
-.q.cm::before{content:"💬";background:transparent;font-size:1.2rem}
+.q.cm::before{content:none}
 .lbl,.q label{display:block;font-weight:700;font-size:1.15rem;line-height:1.4;margin-bottom:9px;padding-top:2px}
 .opt{color:var(--muted);font-weight:400;font-size:1rem}
 
+/* ตัวเลือกฐานะ */
 .chips{display:flex;flex-wrap:wrap;gap:7px}
-.chips button{font-size:1.05rem;line-height:1.4;padding:3px 15px 4px;border:1.5px solid var(--line);border-radius:99px;background:#fff;color:var(--ink);cursor:pointer;transition:transform .15s,background .15s,border-color .15s,box-shadow .15s}
-.chips button:hover{border-color:var(--maroon);background:var(--maroon-t)}
-.chips button[aria-checked="true"]{background:var(--maroon);border-color:var(--maroon);color:#fff;transform:scale(1.05);box-shadow:0 4px 12px rgba(155,52,50,.3)}
+.chips button{font-size:1.05rem;line-height:1.4;padding:4px 16px 5px;border:1.5px solid var(--line);border-radius:99px;background:#fff;color:var(--ink);cursor:pointer;transition:transform .15s,background .15s,border-color .15s,box-shadow .15s}
+.chips button:hover{border-color:var(--yellow-d);background:var(--yellow-t)}
+.chips button[aria-checked="true"]{background:var(--red);border-color:var(--red);color:#fff;transform:scale(1.05);box-shadow:0 4px 12px rgba(218,41,28,.3)}
 
-/* ตารางคะแนน 5 ระดับ (Linear scale) */
+/* ตารางคะแนน 5 ระดับ */
 .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
-.scale button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px 2px;border:1.5px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;color:var(--ink);transition:transform .15s,background .15s,border-color .15s,box-shadow .15s}
-.scale button:hover{border-color:var(--maroon);background:var(--maroon-t)}
-.scale button .n{font-size:1.25rem;font-weight:700;line-height:1.1}
-.scale button .e{font-size:1.2rem;line-height:1}
-.scale button .t{font-size:.78rem;color:var(--muted);line-height:1.2;text-align:center}
-.scale button.on{background:var(--maroon);border-color:var(--maroon);color:#fff;transform:scale(1.05);box-shadow:0 4px 12px rgba(155,52,50,.3)}
-.scale button.on .t{color:#f6e9e7}
+.scale button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:64px;padding:6px 2px;border:1.5px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;color:var(--ink);transition:transform .15s,background .15s,border-color .15s,box-shadow .15s}
+.scale button:hover{border-color:var(--yellow-d);background:var(--yellow-t)}
+.scale button .n{font-size:1.4rem;font-weight:700;line-height:1.1}
+.scale button .t{font-size:.8rem;color:var(--muted);line-height:1.2;text-align:center}
+.scale button.on{background:var(--yellow);border-color:var(--yellow-d);color:#3d1f00;transform:scale(1.05);box-shadow:0 4px 12px rgba(242,183,5,.45)}
+.scale button.on .t{color:#3d1f00}
+.scale button.on .n{color:var(--red)}
 .scale button.pop{animation:pop .45s cubic-bezier(.3,1.8,.5,1)}
-.hint{min-height:1.6em;font-size:1.02rem;color:var(--maroon);font-weight:700;line-height:1.6;margin-top:6px}
-.hint .em{display:inline-block;font-size:1.3rem;vertical-align:-2px;animation:pop .5s cubic-bezier(.3,1.8,.5,1)}
+.hint{min-height:1.5em;font-size:1rem;color:var(--red);font-weight:700;line-height:1.5;margin-top:6px}
 
-@keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.55) rotate(-12deg)}100%{transform:scale(1)}}
-.sp{position:absolute;left:50%;top:50%;font-style:normal;font-size:.95rem;color:var(--gold);pointer-events:none;animation:fly .7s ease-out forwards}
+@keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.4) rotate(-8deg)}100%{transform:scale(1)}}
+.sp{position:absolute;left:50%;top:50%;font-style:normal;font-size:.95rem;color:var(--yellow-d);pointer-events:none;animation:fly .7s ease-out forwards}
 @keyframes fly{from{transform:translate(-50%,-50%) scale(1)}to{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.2);opacity:0}}
 
-input[type=text],textarea{width:100%;font:inherit;font-size:1.1rem;padding:10px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fffdfc}
+input[type=text],textarea{width:100%;font:inherit;font-size:1.1rem;padding:10px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fffdf7}
 textarea{min-height:84px;resize:vertical}
-input[type=text]::placeholder,textarea::placeholder{color:#a79b97}
-input:focus,textarea:focus,button:focus-visible{outline:3px solid #f0b42988;outline-offset:2px;border-color:var(--maroon)}
+input[type=text]::placeholder,textarea::placeholder{color:#b5a58f}
+input:focus,textarea:focus,button:focus-visible{outline:3px solid #FFC72C88;outline-offset:2px;border-color:var(--red)}
 
-#send{display:block;width:100%;margin-top:18px;padding:9px 10px 10px;font-weight:700;font-size:1.3rem;letter-spacing:.3px;color:#fff;background:#c0b2af;border:0;border-radius:14px;cursor:pointer;transition:background .3s,transform .15s}
-#send.ready{background:linear-gradient(135deg,#b53a37,#8a2a28);animation:glow 1.6s ease-in-out infinite}
+#send{display:block;width:100%;margin-top:18px;padding:10px 10px 11px;font-weight:700;font-size:1.3rem;letter-spacing:.3px;color:#fff;background:#d9c9a8;border:0;border-radius:14px;cursor:pointer;transition:background .3s,transform .15s}
+#send.ready{background:linear-gradient(135deg,var(--red),var(--red-d));color:#fff;animation:glow 1.6s ease-in-out infinite}
 #send.ready:hover{transform:translateY(-1px)}
-@keyframes glow{0%,100%{box-shadow:0 0 0 0 #f0b42900}50%{box-shadow:0 0 0 8px #f0b42955}}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 #FFC72C00}50%{box-shadow:0 0 0 8px #FFC72C77}}
 #send:disabled{opacity:.6;cursor:wait;animation:none}
-#err{color:#b3261e;font-weight:700;font-size:1.05rem;min-height:1.4em;margin-top:10px}
+#err{color:var(--red);font-weight:700;font-size:1.05rem;min-height:1.4em;margin-top:10px}
 
 /* หน้าขอบคุณ */
 #thanks{display:none;text-align:center;padding:30px 0 10px}
-#thanks .big{font-size:3.4rem;line-height:1;display:inline-block;animation:pop .9s cubic-bezier(.3,1.8,.5,1)}
-#thanks h2{margin:10px 0 4px;font-size:1.7rem;line-height:1.25;color:var(--maroon)}
-#avg{font-size:1.2rem;color:#d79a14;font-weight:700;margin:2px 0 8px}
+#thanks .big{font-size:3.2rem;line-height:1;display:inline-block;animation:pop .9s cubic-bezier(.3,1.8,.5,1)}
+#thanks h2{margin:10px 0 4px;font-size:1.7rem;line-height:1.25;color:var(--red)}
+#avg{font-size:1.2rem;color:var(--red);font-weight:700;margin:2px 0 8px}
 #thanks p{margin:0 auto 18px;max-width:24em;font-size:1.05rem;color:var(--muted)}
 canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-/* มือถือ (รองรับทุกขนาดจอ) */
+/* มือถือ */
 @media (max-width:480px){
   main{padding:12px 16px 24px;border-radius:18px}
   .q{padding-left:2.4rem}
   .scale{gap:4px}
-  .scale button{padding:6px 1px}
-  .scale button .n{font-size:1.1rem}
+  .scale button{min-height:58px;padding:4px 1px}
+  .scale button .n{font-size:1.2rem}
   .scale button .t{font-size:.68rem}
   header{padding:22px 16px 52px}
   header h1{font-size:1.45rem}
@@ -111,7 +117,7 @@ canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index
   #ptxt{font-size:.95rem}
   .scale button .t{display:none}
 }
-@media (pointer:coarse){.chips button{min-height:42px;padding-left:16px;padding-right:16px}#send{min-height:50px}}
+@media (pointer:coarse){.chips button{min-height:42px}#send{min-height:50px}}
 
 /* แท็บเล็ต */
 @media (min-width:768px){
@@ -124,7 +130,7 @@ canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index
   html{font-size:20px}
   main{width:min(1000px,calc(100% - 64px));margin-top:-56px;padding:18px 48px 40px;border-radius:26px}
   form{display:grid;grid-template-columns:1fr 1fr;column-gap:52px}
-  .section-title,.q.w,#err,#send{grid-column:1/-1}
+  .section-title,.sub-title,.legend,.q.w,#err,#send{grid-column:1/-1}
   #send{max-width:440px;margin-left:auto;margin-right:auto}
   textarea{min-height:110px}
 }
@@ -152,18 +158,20 @@ canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index
   <div class="q w"><span class="lbl">ท่านเข้าร่วมชมนิทรรศการในฐานะใด? <span class="opt">(เลือก 1 ข้อ)</span></span><div class="chips" data-key="role" role="radiogroup" aria-label="ฐานะ"></div></div>
 
   <div class="section-title">ส่วนที่ 2 : ความพึงพอใจต่อผลงานสื่อการสอน</div>
-  <div class="q w"><span class="opt">5 = มากที่สุด · 4 = มาก · 3 = ปานกลาง · 2 = น้อย · 1 = น้อยที่สุด</span></div>
+  <div class="legend w">
+    <span><b>5</b> มากที่สุด</span><span><b>4</b> มาก</span><span><b>3</b> ปานกลาง</span><span><b>2</b> น้อย</span><span><b>1</b> น้อยที่สุด</span>
+  </div>
 
-  <div class="q w"><span class="lbl" style="color:var(--maroon)">ด้านเนื้อหาและการนำไปใช้จัดการเรียนรู้</span></div>
-  <div class="q" data-q="q1"><span class="lbl">ความถูกต้องของเนื้อหาเรื่องการบวกจำนวนนับไม่เกิน 100 และความเหมาะสมกับระดับชั้นประถมศึกษาปีที่ 2</span><div class="scale" data-key="q1" role="radiogroup"></div><div class="hint"></div></div>
-  <div class="q" data-q="q2"><span class="lbl">การเชื่อมโยงสถานการณ์จำลอง (ร้าน McDonald's) ช่วยให้ผู้เรียนเข้าใจแนวคิดการบวกได้ง่ายขึ้น</span><div class="scale" data-key="q2" role="radiogroup"></div><div class="hint"></div></div>
-  <div class="q" data-q="q3"><span class="lbl">สื่อการสอนสามารถดึงดูดความสนใจ กระตุ้นการมีส่วนร่วม และสร้างความสนุกสนานในการเรียนรู้</span><div class="scale" data-key="q3" role="radiogroup"></div><div class="hint"></div></div>
-  <div class="q" data-q="q4"><span class="lbl">สามารถนำไปประยุกต์ใช้จัดกิจกรรมการเรียนรู้ในชั้นเรียนจริงได้อย่างมีประสิทธิภาพ</span><div class="scale" data-key="q4" role="radiogroup"></div><div class="hint"></div></div>
+  <div class="sub-title w">ด้านเนื้อหาและการนำไปใช้จัดการเรียนรู้</div>
+  <div class="q"><span class="lbl">ความถูกต้องของเนื้อหาเรื่องการบวกจำนวนนับไม่เกิน 100 และความเหมาะสมกับระดับชั้นประถมศึกษาปีที่ 2</span><div class="scale" data-key="q1" role="radiogroup"></div><div class="hint"></div></div>
+  <div class="q"><span class="lbl">การเชื่อมโยงสถานการณ์จำลอง (ร้าน McDonald's) ช่วยให้ผู้เรียนเข้าใจแนวคิดการบวกได้ง่ายขึ้น</span><div class="scale" data-key="q2" role="radiogroup"></div><div class="hint"></div></div>
+  <div class="q"><span class="lbl">สื่อการสอนสามารถดึงดูดความสนใจ กระตุ้นการมีส่วนร่วม และสร้างความสนุกสนานในการเรียนรู้</span><div class="scale" data-key="q3" role="radiogroup"></div><div class="hint"></div></div>
+  <div class="q"><span class="lbl">สามารถนำไปประยุกต์ใช้จัดกิจกรรมการเรียนรู้ในชั้นเรียนจริงได้อย่างมีประสิทธิภาพ</span><div class="scale" data-key="q4" role="radiogroup"></div><div class="hint"></div></div>
 
-  <div class="q w"><span class="lbl" style="color:var(--maroon)">ด้านการออกแบบ รูปลักษณ์ และคุณภาพของสื่อ</span></div>
-  <div class="q" data-q="q5"><span class="lbl">ความสวยงาม ความคิดสร้างสรรค์ และการใช้สีสัน/ภาพประกอบที่ดึงดูดสายตาผู้เรียน</span><div class="scale" data-key="q5" role="radiogroup"></div><div class="hint"></div></div>
-  <div class="q" data-q="q6"><span class="lbl">ขนาดของตัวอักษร ตัวเลข และองค์ประกอบของสื่อมีความชัดเจน อ่านง่าย</span><div class="scale" data-key="q6" role="radiogroup"></div><div class="hint"></div></div>
-  <div class="q" data-q="q7"><span class="lbl">ความแข็งแรง ทนทาน ความปลอดภัย และความสะดวกในการหยิบจับหรือใช้งานของเด็กประถม</span><div class="scale" data-key="q7" role="radiogroup"></div><div class="hint"></div></div>
+  <div class="sub-title w">ด้านการออกแบบ รูปลักษณ์ และคุณภาพของสื่อ</div>
+  <div class="q"><span class="lbl">ความสวยงาม ความคิดสร้างสรรค์ และการใช้สีสัน/ภาพประกอบที่ดึงดูดสายตาผู้เรียน</span><div class="scale" data-key="q5" role="radiogroup"></div><div class="hint"></div></div>
+  <div class="q"><span class="lbl">ขนาดของตัวอักษร ตัวเลข และองค์ประกอบของสื่อมีความชัดเจน อ่านง่าย</span><div class="scale" data-key="q6" role="radiogroup"></div><div class="hint"></div></div>
+  <div class="q"><span class="lbl">ความแข็งแรง ทนทาน ความปลอดภัย และความสะดวกในการหยิบจับหรือใช้งานของเด็กประถม</span><div class="scale" data-key="q7" role="radiogroup"></div><div class="hint"></div></div>
 
   <div class="section-title">ส่วนที่ 3 : ข้อเสนอแนะเพิ่มเติม</div>
   <div class="q cm w"><label for="strengths">จุดเด่นของผลงานสื่อการสอนชิ้นนี้ <span class="opt">(ไม่บังคับ)</span></label><textarea id="strengths"></textarea></div>
@@ -186,45 +194,42 @@ canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index
 /* ====== ใส่ Web app URL ของ Apps Script ที่นี่ ====== */
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx6RGIJYPbovpg_IZFEgRsFnZWWfqnzZ86Vxe3jyZvv8S9KM2OPJu4nmkphsW_GIOBJ/exec";
 
-const ROLES = ["อาจารย์ผู้สอน / คณะกรรมการประเมิน","นักศึกษา","บุคลากร / ผู้สนใจทั่วไป"];
+const ROLES = ["อาจารย์ผู้สอน / คณะกรรมการประเมิน","นักเรียน/นักศึกษา","บุคลากร / ผู้สนใจทั่วไป"];
 const SCORE_Q = ["q1","q2","q3","q4","q5","q6","q7"];
-const SCALE = [
-  [5,"😍","มากที่สุด"],[4,"🙂","มาก"],[3,"😐","ปานกลาง"],[2,"🙁","น้อย"],[1,"😞","น้อยที่สุด"]
-];
+const SCALE = [[5,"มากที่สุด"],[4,"มาก"],[3,"ปานกลาง"],[2,"น้อย"],[1,"น้อยที่สุด"]];
 const REQUIRED = ["role", ...SCORE_Q];
 const ans = {};
 const $ = id => document.getElementById(id);
 
-/* ---------- สร้างตัวเลือก ---------- */
-document.querySelector('[data-key="role"]').innerHTML = "";
+/* ---------- ตัวเลือกฐานะ ---------- */
+const roleBox = document.querySelector('[data-key="role"]');
 ROLES.forEach(text=>{
   const b=document.createElement("button");
   b.type="button";b.textContent=text;b.setAttribute("role","radio");b.setAttribute("aria-checked","false");
   b.onclick=()=>{
     ans.role=text;
-    document.querySelectorAll('[data-key="role"] button').forEach(x=>x.setAttribute("aria-checked",x===b));
+    roleBox.querySelectorAll("button").forEach(x=>x.setAttribute("aria-checked",x===b));
     tick();refresh("role");
   };
-  document.querySelector('[data-key="role"]').appendChild(b);
+  roleBox.appendChild(b);
 });
 
+/* ---------- ตารางคะแนน 5 ระดับ ---------- */
 document.querySelectorAll(".scale").forEach(box=>{
   const key=box.dataset.key, hint=box.nextElementSibling, btns=[];
-  SCALE.forEach(([v,e,t])=>{
+  SCALE.forEach(([v,t])=>{
     const b=document.createElement("button");
     b.type="button";b.setAttribute("role","radio");b.setAttribute("aria-label",v+" "+t);
-    b.innerHTML='<span class="n">'+v+'</span><span class="e">'+e+'</span><span class="t">'+t+'</span>';
-    b.onmouseenter=()=>{hint.textContent=e+" "+t};
+    b.innerHTML='<span class="n">'+v+'</span><span class="t">'+t+'</span>';
     b.onclick=()=>{
       ans[key]=v;
       btns.forEach(x=>x.classList.remove("on","pop"));
       b.classList.add("on");void b.offsetWidth;b.classList.add("pop");
-      hint.innerHTML='<span class="em">'+e+'</span> '+t;
+      hint.textContent=v+" = "+t;
       burst(b,v);starSound(v);refresh(key);
     };
     btns.push(b);box.appendChild(b);
   });
-  box.onmouseleave=()=>{ if(!ans[key]) hint.textContent=""; };
 });
 
 /* ---------- เสียง (สังเคราะห์เอง ไม่ใช้ไฟล์) ---------- */
@@ -234,7 +239,7 @@ $("snd").textContent=sound?"🔊":"🔇";
 function actx(){if(!sound)return null;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state==="suspended")AC.resume();return AC}catch(e){return null}}
 function tone(f,t0,d,type,vol){const c=actx();if(!c)return;const o=c.createOscillator(),g=c.createGain(),t=c.currentTime+t0;o.type=type||"sine";o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(vol||.07,t+.015);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+d+.03)}
 const NOTE=[0,392,494,587,698,880];
-function starSound(n){tone(NOTE[n],0,.28,"triangle",.09);if(n>=4)tone(NOTE[n]*1.5,.07,.3,"sine",.05);if(n===5)[1047,1319,1568].forEach((f,i)=>tone(f,.12+i*.07,.35,"sine",.05))}
+function starSound(n){tone(NOTE[n],0,.28,"triangle",.09);if(n>=4)tone(NOTE[n]*1.5,.07,.3,"sine",.05)}
 const tick=()=>tone(740,0,.07,"triangle",.05);
 const readySound=()=>{tone(880,0,.15,"sine",.06);tone(1175,.1,.25,"sine",.06)};
 const fanfare=()=>{[523,659,784,1047].forEach((f,i)=>tone(f,i*.11,.4,"triangle",.09));[1319,1568,2093].forEach((f,i)=>tone(f,.5+i*.08,.5,"sine",.05))};
@@ -281,7 +286,7 @@ $("f").addEventListener("submit",async e=>{
       body:JSON.stringify(payload)
     });
     const sc=SCORE_Q.map(k=>ans[k]);
-    $("avg").textContent="★ "+(sc.reduce((a,b)=>a+b,0)/sc.length).toFixed(1)+" / 5 คะแนนเฉลี่ยที่ท่านให้";
+    $("avg").textContent="เฉลี่ยคะแนนของท่าน "+(sc.reduce((a,b)=>a+b,0)/sc.length).toFixed(1)+" / 5";
     $("f").style.display="none";$("bar").style.display="none";$("thanks").style.display="block";
     window.scrollTo({top:0,behavior:"smooth"});fanfare();celebrate();
   }catch(x){
@@ -290,11 +295,11 @@ $("f").addEventListener("submit",async e=>{
   }
 });
 
-/* ---------- พลุกระดาษ ---------- */
+/* ---------- พลุกระดาษ (สีเหลือง-แดง) ---------- */
 function celebrate(){
   if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
   const cv=$("cv"),ctx=cv.getContext("2d");cv.width=innerWidth;cv.height=innerHeight;
-  const col=["#9b3432","#f0b429","#ffffff","#4aa3df","#e8744f","#2e9d5b"],bits=[];
+  const col=["#DA291C","#FFC72C","#ffffff","#FFA400","#B71C12","#2e9d5b"],bits=[];
   const add=(x,dir,delay)=>{for(let i=0;i<90;i++)bits.push({x,y:cv.height*.45,vx:dir*(Math.random()*10+2)+(Math.random()-.5)*6,vy:Math.random()*-15-4,s:6+Math.random()*6,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:col[i%col.length],w:delay})};
   add(cv.width*.1,1,0);add(cv.width*.9,-1,0);add(cv.width*.5,0,18);
   let t=0;(function tick(){ctx.clearRect(0,0,cv.width,cv.height);
