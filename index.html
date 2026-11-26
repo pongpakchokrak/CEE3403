@@ -1,221 +1,306 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>แบบประเมินสื่อการสอนคณิตศาสตร์ McDonald's</title>
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>แบบประเมินสื่อการสอนคณิตศาสตร์ McDonald's | CEE3403</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root{--main:#6c5ce7;--accent:#fd79a8;--text:#2d2a4a;--muted:#7b7796}
-  *{box-sizing:border-box}
-  body{margin:0;font-family:'Prompt',sans-serif;color:var(--text);padding:16px;min-height:100vh;
-    background:linear-gradient(135deg,#f5f3ff 0%,#ffe9f3 100%)}
-  .wrap{max-width:680px;margin:0 auto}
-  header{text-align:center;padding:20px 8px}
-  header h1{font-size:1.35rem;margin:6px 0 4px}
-  header p{color:var(--muted);font-size:.9rem;margin:0;line-height:1.6}
-  .progress{position:sticky;top:8px;z-index:5;height:8px;border-radius:8px;overflow:hidden;
-    background:rgba(255,255,255,.8);backdrop-filter:blur(8px);margin-bottom:16px}
-  .progress div{height:100%;width:0;background:linear-gradient(90deg,var(--main),var(--accent));transition:width .4s}
-  .card{background:#fff;border-radius:20px;padding:20px;margin-bottom:16px;
-    box-shadow:0 8px 24px rgba(108,92,231,.08);animation:up .5s both}
-  @keyframes up{from{opacity:0;transform:translateY(14px)}}
-  .card h2{font-size:1.05rem;margin:0 0 6px;color:var(--main)}
-  label.q{display:block;font-weight:600;margin:16px 0 8px;font-size:.95rem;line-height:1.5}
-  label.q small{font-weight:400;color:var(--muted)}
-  input[type=text],textarea{width:100%;padding:12px 14px;border:2px solid #e6e2ff;border-radius:12px;
-    font:inherit;font-size:16px;transition:border-color .2s}
-  input[type=text]:focus,textarea:focus{outline:none;border-color:var(--main)}
-  textarea{min-height:90px;resize:vertical}
-  .opt{position:relative;display:block;cursor:pointer}
-  .opt input{position:absolute;opacity:0;pointer-events:none}
-  .opt span{display:block;padding:12px 14px;border:2px solid #e6e2ff;border-radius:12px;
-    transition:transform .15s,background .2s,border-color .2s;font-size:.95rem}
-  .opt span:active{transform:scale(.97)}
-  .opt input:checked+span{border-color:var(--main);background:#f0edff;font-weight:600;
-    box-shadow:0 4px 12px rgba(108,92,231,.2)}
-  .opts{display:grid;gap:8px}
-  .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
-  .scale .opt span{text-align:center;padding:10px 2px;font-size:1.25rem;font-weight:700;line-height:1.3}
-  .scale .opt small{display:block;font-size:.62rem;font-weight:400;color:var(--muted);margin-top:4px;line-height:1.2}
-  .submit{width:100%;padding:16px;border:0;border-radius:16px;font:inherit;font-size:1.05rem;font-weight:700;
-    color:#fff;cursor:pointer;background:linear-gradient(90deg,var(--main),var(--accent));
-    box-shadow:0 10px 24px rgba(253,121,168,.35);transition:transform .15s}
-  .submit:active{transform:scale(.98)}
-  .submit:disabled{opacity:.6}
-  #done{text-align:center}
-  #done h2{font-size:1.4rem}
-  .bit{position:fixed;top:-10%;font-size:24px;pointer-events:none;animation:fall 2.8s linear forwards}
-  @keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+:root{--maroon:#9b3432;--maroon-d:#7a2523;--maroon-t:#f6e9e7;--gold:#f0b429;--green:#2e9d5b;--ink:#2a2220;--muted:#6f6360;--line:#ece3e0;--bg:#faf5f2}
+*{box-sizing:border-box}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+button{touch-action:manipulation;-webkit-tap-highlight-color:transparent;font-family:inherit}
+body{margin:0;padding-bottom:env(safe-area-inset-bottom,0px);background:radial-gradient(1200px 500px at 50% -120px,#f3e3df,transparent 70%),var(--bg);color:var(--ink);font:1.15rem/1.5 "Sarabun",Tahoma,sans-serif;-webkit-font-smoothing:antialiased}
+
+/* หัวเรื่อง */
+header{position:relative;overflow:hidden;background:linear-gradient(135deg,#a63a37 0%,#7a2523 100%);color:#fff;padding:26px 20px 58px;text-align:center}
+header::before,header::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+header::before{width:260px;height:260px;right:-70px;top:-120px;background:radial-gradient(circle,#f0b42955,transparent 68%)}
+header::after{width:220px;height:220px;left:-80px;bottom:-130px;background:radial-gradient(circle,#ffffff22,transparent 68%)}
+header h1{position:relative;margin:0 0 6px;font-size:1.7rem;font-weight:700;line-height:1.25}
+header p{position:relative;margin:0;opacity:.92;font-size:1.02rem;line-height:1.5}
+header p::before{content:"";display:block;width:44px;height:3px;border-radius:3px;background:var(--gold);margin:0 auto 10px}
+
+main{position:relative;width:min(620px,calc(100% - 24px));margin:-34px auto 44px;background:#fff;border-radius:22px;padding:14px 24px 28px;box-shadow:0 10px 32px rgba(80,30,28,.13)}
+
+/* แถบความคืบหน้า */
+.bar{position:sticky;top:10px;z-index:5;display:flex;align-items:center;gap:12px;margin:0 0 6px;padding:11px 14px 12px 16px;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;box-shadow:0 4px 14px rgba(80,30,28,.08)}
+.prog{flex:1;min-width:0}
+#ptxt{display:block;white-space:nowrap;font-size:1.05rem;font-weight:700;color:var(--muted);line-height:1.35;margin-bottom:7px}
+#ptxt b{color:var(--maroon);font-size:1.2rem}
+.track{position:relative;height:8px;background:#f0e7e3;border-radius:8px;overflow:hidden}
+.fill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--gold),#e0762f 55%,var(--maroon));transition:width .45s cubic-bezier(.3,1.2,.5,1)}
+.bar.full .fill{background:linear-gradient(90deg,#46b878,var(--green))}
+#snd{flex:none;display:grid;place-items:center;width:38px;height:38px;border:1.5px solid var(--line);background:#fff;border-radius:50%;font-size:1.1rem;line-height:1;padding:0;cursor:pointer;transition:background .15s,transform .15s}
+#snd:hover{background:var(--maroon-t);transform:scale(1.06)}
+
+/* ส่วนหัวของแต่ละหมวด */
+.section-title{margin:18px 0 4px;padding:10px 14px;background:var(--maroon-t);color:var(--maroon);border-radius:12px;font-weight:700;font-size:1.1rem;line-height:1.4}
+
+/* คำถาม */
+form{counter-reset:q}
+.q{position:relative;counter-increment:q;padding:16px 0 18px 2.6rem;border-bottom:1px solid var(--line)}
+.q:last-of-type{border-bottom:0}
+.q::before{content:counter(q);position:absolute;left:0;top:1.05rem;width:1.75rem;height:1.75rem;border-radius:50%;background:var(--maroon-t);color:var(--maroon);font-weight:700;line-height:1.75rem;text-align:center;transition:background .25s,color .25s}
+.q.done::before{content:"✓";background:var(--green);color:#fff;animation:pop .5s cubic-bezier(.3,1.8,.5,1)}
+.q.cm{counter-increment:none;border-bottom:0}
+.q.cm::before{content:"💬";background:transparent;font-size:1.2rem}
+.lbl,.q label{display:block;font-weight:700;font-size:1.15rem;line-height:1.4;margin-bottom:9px;padding-top:2px}
+.opt{color:var(--muted);font-weight:400;font-size:1rem}
+
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chips button{font-size:1.05rem;line-height:1.4;padding:3px 15px 4px;border:1.5px solid var(--line);border-radius:99px;background:#fff;color:var(--ink);cursor:pointer;transition:transform .15s,background .15s,border-color .15s,box-shadow .15s}
+.chips button:hover{border-color:var(--maroon);background:var(--maroon-t)}
+.chips button[aria-checked="true"]{background:var(--maroon);border-color:var(--maroon);color:#fff;transform:scale(1.05);box-shadow:0 4px 12px rgba(155,52,50,.3)}
+
+/* ตารางคะแนน 5 ระดับ (Linear scale) */
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.scale button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px 2px;border:1.5px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;color:var(--ink);transition:transform .15s,background .15s,border-color .15s,box-shadow .15s}
+.scale button:hover{border-color:var(--maroon);background:var(--maroon-t)}
+.scale button .n{font-size:1.25rem;font-weight:700;line-height:1.1}
+.scale button .e{font-size:1.2rem;line-height:1}
+.scale button .t{font-size:.78rem;color:var(--muted);line-height:1.2;text-align:center}
+.scale button.on{background:var(--maroon);border-color:var(--maroon);color:#fff;transform:scale(1.05);box-shadow:0 4px 12px rgba(155,52,50,.3)}
+.scale button.on .t{color:#f6e9e7}
+.scale button.pop{animation:pop .45s cubic-bezier(.3,1.8,.5,1)}
+.hint{min-height:1.6em;font-size:1.02rem;color:var(--maroon);font-weight:700;line-height:1.6;margin-top:6px}
+.hint .em{display:inline-block;font-size:1.3rem;vertical-align:-2px;animation:pop .5s cubic-bezier(.3,1.8,.5,1)}
+
+@keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.55) rotate(-12deg)}100%{transform:scale(1)}}
+.sp{position:absolute;left:50%;top:50%;font-style:normal;font-size:.95rem;color:var(--gold);pointer-events:none;animation:fly .7s ease-out forwards}
+@keyframes fly{from{transform:translate(-50%,-50%) scale(1)}to{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.2);opacity:0}}
+
+input[type=text],textarea{width:100%;font:inherit;font-size:1.1rem;padding:10px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fffdfc}
+textarea{min-height:84px;resize:vertical}
+input[type=text]::placeholder,textarea::placeholder{color:#a79b97}
+input:focus,textarea:focus,button:focus-visible{outline:3px solid #f0b42988;outline-offset:2px;border-color:var(--maroon)}
+
+#send{display:block;width:100%;margin-top:18px;padding:9px 10px 10px;font-weight:700;font-size:1.3rem;letter-spacing:.3px;color:#fff;background:#c0b2af;border:0;border-radius:14px;cursor:pointer;transition:background .3s,transform .15s}
+#send.ready{background:linear-gradient(135deg,#b53a37,#8a2a28);animation:glow 1.6s ease-in-out infinite}
+#send.ready:hover{transform:translateY(-1px)}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 #f0b42900}50%{box-shadow:0 0 0 8px #f0b42955}}
+#send:disabled{opacity:.6;cursor:wait;animation:none}
+#err{color:#b3261e;font-weight:700;font-size:1.05rem;min-height:1.4em;margin-top:10px}
+
+/* หน้าขอบคุณ */
+#thanks{display:none;text-align:center;padding:30px 0 10px}
+#thanks .big{font-size:3.4rem;line-height:1;display:inline-block;animation:pop .9s cubic-bezier(.3,1.8,.5,1)}
+#thanks h2{margin:10px 0 4px;font-size:1.7rem;line-height:1.25;color:var(--maroon)}
+#avg{font-size:1.2rem;color:#d79a14;font-weight:700;margin:2px 0 8px}
+#thanks p{margin:0 auto 18px;max-width:24em;font-size:1.05rem;color:var(--muted)}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* มือถือ (รองรับทุกขนาดจอ) */
+@media (max-width:480px){
+  main{padding:12px 16px 24px;border-radius:18px}
+  .q{padding-left:2.4rem}
+  .scale{gap:4px}
+  .scale button{padding:6px 1px}
+  .scale button .n{font-size:1.1rem}
+  .scale button .t{font-size:.68rem}
+  header{padding:22px 16px 52px}
+  header h1{font-size:1.45rem}
+}
+@media (max-width:300px){
+  .bar{padding:9px 10px 10px 12px;gap:8px}
+  #snd{width:32px;height:32px;font-size:1rem}
+  #ptxt{font-size:.95rem}
+  .scale button .t{display:none}
+}
+@media (pointer:coarse){.chips button{min-height:42px;padding-left:16px;padding-right:16px}#send{min-height:50px}}
+
+/* แท็บเล็ต */
+@media (min-width:768px){
+  html{font-size:18px}
+  main{width:min(760px,calc(100% - 48px));padding:16px 34px 32px}
+  header{padding:34px 24px 68px}
+}
+/* โน้ตบุ๊ก / ไอแพดแนวนอน */
+@media (min-width:1024px){
+  html{font-size:20px}
+  main{width:min(1000px,calc(100% - 64px));margin-top:-56px;padding:18px 48px 40px;border-radius:26px}
+  form{display:grid;grid-template-columns:1fr 1fr;column-gap:52px}
+  .section-title,.q.w,#err,#send{grid-column:1/-1}
+  #send{max-width:440px;margin-left:auto;margin-right:auto}
+  textarea{min-height:110px}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div style="font-size:44px">🍟📚</div>
-    <h1>แบบลงทะเบียนและประเมินความพึงพอใจ</h1>
-    <p>นิทรรศการสื่อการสอน รายวิชา CEE3403<br>
-    สื่อการสอนคณิตศาสตร์ เรื่อง McDonald's การบวกจำนวนนับไม่เกิน 100 (ป.2)</p>
-  </header>
+<header>
+  <h1>แบบลงทะเบียนและประเมินความพึงพอใจ<br>การเข้าชมนิทรรศการสื่อการสอน</h1>
+  <p>รายวิชา CEE3403 · สื่อการสอนคณิตศาสตร์ เรื่อง McDonald's<br>การบวกจำนวนนับไม่เกิน 100 (ป.2)</p>
+</header>
 
-  <div class="progress"><div id="bar"></div></div>
-
-  <form id="f">
-    <div class="card">
-      <h2>ส่วนที่ 1 : ข้อมูลทั่วไปของผู้ประเมิน</h2>
-      <label class="q">ชื่อ - นามสกุล</label>
-      <input type="text" name="name" required placeholder="เช่น สมหญิง ใจดี">
-      <label class="q">รหัสนักศึกษา <small>(อาจารย์/บุคคลภายนอกเว้นว่าง หรือใส่ - ได้)</small></label>
-      <input type="text" name="studentId" placeholder="เช่น 6501234567">
-      <label class="q">ท่านเข้าร่วมชมนิทรรศการในฐานะใด?</label>
-      <div class="opts" id="roles"></div>
-    </div>
-
-    <div id="sections"></div>
-
-    <div class="card">
-      <h2>ส่วนที่ 3 : ข้อเสนอแนะเพิ่มเติม</h2>
-      <label class="q">จุดเด่นของผลงานสื่อการสอนชิ้นนี้ <small>(ไม่บังคับ)</small></label>
-      <textarea name="strengths"></textarea>
-      <label class="q">ข้อเสนอแนะเพื่อการปรับปรุงและพัฒนาต่อไป <small>(ไม่บังคับ)</small></label>
-      <textarea name="suggestions"></textarea>
-    </div>
-
-    <button class="submit" id="btn" type="submit">ส่งแบบประเมิน 🚀</button>
-  </form>
-
-  <div id="done" class="card" hidden>
-    <div style="font-size:56px">🎉</div>
-    <h2>ขอบคุณค่ะ!</h2>
-    <p>ความคิดเห็นของท่านถูกบันทึกเรียบร้อยแล้ว</p>
+<main>
+<div class="bar" id="bar">
+  <div class="prog">
+    <div id="ptxt">ตอบแล้ว <b>0</b>/<span id="total">0</span> ข้อ</div>
+    <div class="track"><div class="fill" id="fill"></div></div>
   </div>
+  <button id="snd" type="button" aria-label="เปิด/ปิดเสียง" title="เปิด/ปิดเสียง">🔊</button>
 </div>
 
+<form id="f" novalidate>
+  <div class="section-title">ส่วนที่ 1 : ข้อมูลทั่วไปของผู้ประเมิน</div>
+  <div class="q w"><label for="name">ชื่อ - นามสกุล</label><input type="text" id="name" placeholder="เช่น สมหญิง ใจดี" autocomplete="name"></div>
+  <div class="q w"><label for="sid">รหัสนักศึกษา <span class="opt">(อาจารย์/บุคคลภายนอกเว้นว่าง หรือใส่ - ได้)</span></label><input type="text" id="sid" placeholder="เช่น 6501234567"></div>
+  <div class="q w"><span class="lbl">ท่านเข้าร่วมชมนิทรรศการในฐานะใด? <span class="opt">(เลือก 1 ข้อ)</span></span><div class="chips" data-key="role" role="radiogroup" aria-label="ฐานะ"></div></div>
+
+  <div class="section-title">ส่วนที่ 2 : ความพึงพอใจต่อผลงานสื่อการสอน</div>
+  <div class="q w"><span class="opt">5 = มากที่สุด · 4 = มาก · 3 = ปานกลาง · 2 = น้อย · 1 = น้อยที่สุด</span></div>
+
+  <div class="q w"><span class="lbl" style="color:var(--maroon)">ด้านเนื้อหาและการนำไปใช้จัดการเรียนรู้</span></div>
+  <div class="q" data-q="q1"><span class="lbl">ความถูกต้องของเนื้อหาเรื่องการบวกจำนวนนับไม่เกิน 100 และความเหมาะสมกับระดับชั้นประถมศึกษาปีที่ 2</span><div class="scale" data-key="q1" role="radiogroup"></div><div class="hint"></div></div>
+  <div class="q" data-q="q2"><span class="lbl">การเชื่อมโยงสถานการณ์จำลอง (ร้าน McDonald's) ช่วยให้ผู้เรียนเข้าใจแนวคิดการบวกได้ง่ายขึ้น</span><div class="scale" data-key="q2" role="radiogroup"></div><div class="hint"></div></div>
+  <div class="q" data-q="q3"><span class="lbl">สื่อการสอนสามารถดึงดูดความสนใจ กระตุ้นการมีส่วนร่วม และสร้างความสนุกสนานในการเรียนรู้</span><div class="scale" data-key="q3" role="radiogroup"></div><div class="hint"></div></div>
+  <div class="q" data-q="q4"><span class="lbl">สามารถนำไปประยุกต์ใช้จัดกิจกรรมการเรียนรู้ในชั้นเรียนจริงได้อย่างมีประสิทธิภาพ</span><div class="scale" data-key="q4" role="radiogroup"></div><div class="hint"></div></div>
+
+  <div class="q w"><span class="lbl" style="color:var(--maroon)">ด้านการออกแบบ รูปลักษณ์ และคุณภาพของสื่อ</span></div>
+  <div class="q" data-q="q5"><span class="lbl">ความสวยงาม ความคิดสร้างสรรค์ และการใช้สีสัน/ภาพประกอบที่ดึงดูดสายตาผู้เรียน</span><div class="scale" data-key="q5" role="radiogroup"></div><div class="hint"></div></div>
+  <div class="q" data-q="q6"><span class="lbl">ขนาดของตัวอักษร ตัวเลข และองค์ประกอบของสื่อมีความชัดเจน อ่านง่าย</span><div class="scale" data-key="q6" role="radiogroup"></div><div class="hint"></div></div>
+  <div class="q" data-q="q7"><span class="lbl">ความแข็งแรง ทนทาน ความปลอดภัย และความสะดวกในการหยิบจับหรือใช้งานของเด็กประถม</span><div class="scale" data-key="q7" role="radiogroup"></div><div class="hint"></div></div>
+
+  <div class="section-title">ส่วนที่ 3 : ข้อเสนอแนะเพิ่มเติม</div>
+  <div class="q cm w"><label for="strengths">จุดเด่นของผลงานสื่อการสอนชิ้นนี้ <span class="opt">(ไม่บังคับ)</span></label><textarea id="strengths"></textarea></div>
+  <div class="q cm w"><label for="suggestions">ข้อเสนอแนะเพื่อการปรับปรุงและพัฒนาสื่อการสอนต่อไป <span class="opt">(ไม่บังคับ)</span></label><textarea id="suggestions"></textarea></div>
+
+  <div id="err" role="alert"></div>
+  <button id="send" type="submit">ส่งแบบประเมิน</button>
+</form>
+
+<section id="thanks" aria-live="polite">
+  <span class="big">🎉</span>
+  <h2>ขอบคุณค่ะ!</h2>
+  <div id="avg"></div>
+  <p>ความคิดเห็นของท่านถูกบันทึกเรียบร้อยแล้ว จะนำไปใช้พัฒนาสื่อการสอนต่อไป</p>
+</section>
+</main>
+<canvas id="cv" aria-hidden="true"></canvas>
+
 <script>
-  // ====== ใส่ Web app URL จาก Apps Script ตรงนี้ ======
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx6RGIJYPbovpg_IZFEgRsFnZWWfqnzZ86Vxe3jyZvv8S9KM2OPJu4nmkphsW_GIOBJ/exec';
+/* ====== ใส่ Web app URL ของ Apps Script ที่นี่ ====== */
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx6RGIJYPbovpg_IZFEgRsFnZWWfqnzZ86Vxe3jyZvv8S9KM2OPJu4nmkphsW_GIOBJ/exec";
 
-  const roles = [
-    ['teacher','อาจารย์ผู้สอน / คณะกรรมการประเมิน'],
-    ['student','นักศึกษา'],
-    ['general','บุคลากร / ผู้สนใจทั่วไป']
-  ];
-  const sections = [
-    {title:'ส่วนที่ 2 : ด้านเนื้อหาและการนำไปใช้จัดการเรียนรู้', items:[
-      ['q1','ความถูกต้องของเนื้อหาเรื่องการบวกจำนวนนับไม่เกิน 100 และความเหมาะสมกับระดับชั้นประถมศึกษาปีที่ 2'],
-      ['q2','การเชื่อมโยงสถานการณ์จำลอง (ร้าน McDonald\'s) ช่วยให้ผู้เรียนเข้าใจแนวคิดการบวกได้ง่ายขึ้น'],
-      ['q3','สื่อการสอนสามารถดึงดูดความสนใจ กระตุ้นการมีส่วนร่วม และสร้างความสนุกสนานในการเรียนรู้'],
-      ['q4','สามารถนำไปประยุกต์ใช้จัดกิจกรรมการเรียนรู้ในชั้นเรียนจริงได้อย่างมีประสิทธิภาพ']
-    ]},
-    {title:'ด้านการออกแบบ รูปลักษณ์ และคุณภาพของสื่อ', items:[
-      ['q5','ความสวยงาม ความคิดสร้างสรรค์ และการใช้สีสัน/ภาพประกอบที่ดึงดูดสายตาผู้เรียน'],
-      ['q6','ขนาดของตัวอักษร ตัวเลข และองค์ประกอบของสื่อมีความชัดเจน อ่านง่าย'],
-      ['q7','ความแข็งแรง ทนทาน ความปลอดภัย และความสะดวกในการหยิบจับหรือใช้งานของเด็กประถม']
-    ]}
-  ];
-  const scaleLabels = [
-    [5,'😍','มากที่สุด'],[4,'🙂','มาก'],[3,'😐','ปานกลาง'],[2,'🙁','น้อย'],[1,'😞','น้อยที่สุด']
-  ];
+const ROLES = ["อาจารย์ผู้สอน / คณะกรรมการประเมิน","นักศึกษา","บุคลากร / ผู้สนใจทั่วไป"];
+const SCORE_Q = ["q1","q2","q3","q4","q5","q6","q7"];
+const SCALE = [
+  [5,"😍","มากที่สุด"],[4,"🙂","มาก"],[3,"😐","ปานกลาง"],[2,"🙁","น้อย"],[1,"😞","น้อยที่สุด"]
+];
+const REQUIRED = ["role", ...SCORE_Q];
+const ans = {};
+const $ = id => document.getElementById(id);
 
-  const $ = s => document.querySelector(s);
-  const form = $('#f');
+/* ---------- สร้างตัวเลือก ---------- */
+document.querySelector('[data-key="role"]').innerHTML = "";
+ROLES.forEach(text=>{
+  const b=document.createElement("button");
+  b.type="button";b.textContent=text;b.setAttribute("role","radio");b.setAttribute("aria-checked","false");
+  b.onclick=()=>{
+    ans.role=text;
+    document.querySelectorAll('[data-key="role"] button').forEach(x=>x.setAttribute("aria-checked",x===b));
+    tick();refresh("role");
+  };
+  document.querySelector('[data-key="role"]').appendChild(b);
+});
 
-  // ----- สร้างหน้าฟอร์ม -----
-  $('#roles').innerHTML = roles.map(([v,t]) =>
-    `<label class="opt"><input type="radio" name="role" value="${v}" required><span>${t}</span></label>`
-  ).join('');
-
-  $('#sections').innerHTML = sections.map(sec => `
-    <div class="card">
-      <h2>${sec.title}</h2>
-      ${sec.items.map(([k,t]) => `
-        <label class="q">${t}</label>
-        <div class="scale">
-          ${scaleLabels.map(([v,e,l]) => `
-            <label class="opt"><input type="radio" name="${k}" value="${v}" required>
-            <span>${e}<br>${v}<small>${l}</small></span></label>`).join('')}
-        </div>`).join('')}
-    </div>`).join('');
-
-  // ----- เสียงลูกเล่น (Web Audio ไม่ต้องใช้ไฟล์เสียง) -----
-  let ac;
-  function beep(freq = 660, dur = .12) {
-    try {
-      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
-      const o = ac.createOscillator(), g = ac.createGain();
-      o.frequency.value = freq; o.connect(g); g.connect(ac.destination);
-      g.gain.setValueAtTime(.15, ac.currentTime);
-      g.gain.exponentialRampToValueAtTime(.001, ac.currentTime + dur);
-      o.start(); o.stop(ac.currentTime + dur);
-    } catch (e) {}
-  }
-
-  // ----- ความคืบหน้า -----
-  const requiredNames = [...new Set([...form.querySelectorAll('[required]')].map(i => i.name))];
-  function progress() {
-    const done = requiredNames.filter(n => form.elements.namedItem(n).value.trim() !== '').length;
-    $('#bar').style.width = (done / requiredNames.length * 100) + '%';
-  }
-
-  // ----- ตอบเมื่อเลือก: มีเสียงและอัปเดตความคืบหน้า -----
-  form.addEventListener('change', e => {
-    if (e.target.type === 'radio' && /^q\d$/.test(e.target.name)) {
-      beep(300 + Number(e.target.value) * 110); // คะแนนสูง = เสียงสูง
-    } else if (e.target.type === 'radio') {
-      beep(520, .08);
-    }
-    progress();
-  });
-  form.addEventListener('input', progress);
-
-  // ----- ฉลองเมื่อส่งสำเร็จ -----
-  function celebrate() {
-    for (let i = 0; i < 40; i++) {
-      const s = document.createElement('span');
-      s.className = 'bit';
-      s.textContent = ['🎉','✨','🍟','🎈'][i % 4];
-      s.style.left = Math.random() * 100 + 'vw';
-      s.style.animationDelay = Math.random() * .6 + 's';
-      document.body.appendChild(s);
-      setTimeout(() => s.remove(), 3500);
-    }
-    [523, 659, 784, 1046].forEach((f, i) => setTimeout(() => beep(f, .2), i * 120));
-  }
-
-  // ----- ส่งข้อมูล -----
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-    const fd = new FormData(form);
-    const scores = {};
-    for (let i = 1; i <= 7; i++) scores['q' + i] = Number(fd.get('q' + i));
-
-    const payload = {
-      name: fd.get('name').trim(),
-      studentId: (fd.get('studentId') || '').trim() || '-',
-      role: roles.find(r => r[0] === fd.get('role'))[1],
-      scores,
-      strengths: fd.get('strengths') || '',
-      suggestions: fd.get('suggestions') || ''
+document.querySelectorAll(".scale").forEach(box=>{
+  const key=box.dataset.key, hint=box.nextElementSibling, btns=[];
+  SCALE.forEach(([v,e,t])=>{
+    const b=document.createElement("button");
+    b.type="button";b.setAttribute("role","radio");b.setAttribute("aria-label",v+" "+t);
+    b.innerHTML='<span class="n">'+v+'</span><span class="e">'+e+'</span><span class="t">'+t+'</span>';
+    b.onmouseenter=()=>{hint.textContent=e+" "+t};
+    b.onclick=()=>{
+      ans[key]=v;
+      btns.forEach(x=>x.classList.remove("on","pop"));
+      b.classList.add("on");void b.offsetWidth;b.classList.add("pop");
+      hint.innerHTML='<span class="em">'+e+'</span> '+t;
+      burst(b,v);starSound(v);refresh(key);
     };
-
-    const btn = $('#btn');
-    btn.disabled = true; btn.textContent = 'กำลังส่ง...';
-    try {
-      // no-cors: ส่งข้อมูลได้แม้อ่านคำตอบกลับไม่ได้
-      await fetch(SCRIPT_URL, {
-        method: 'POST', mode: 'no-cors',
-        headers: {'Content-Type': 'text/plain;charset=utf-8'},
-        body: JSON.stringify(payload)
-      });
-      form.hidden = true;
-      $('#done').hidden = false;
-      celebrate();
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    } catch (err) {
-      btn.disabled = false; btn.textContent = 'ส่งแบบประเมิน 🚀';
-      alert('ส่งไม่สำเร็จ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้งค่ะ');
-    }
+    btns.push(b);box.appendChild(b);
   });
+  box.onmouseleave=()=>{ if(!ans[key]) hint.textContent=""; };
+});
+
+/* ---------- เสียง (สังเคราะห์เอง ไม่ใช้ไฟล์) ---------- */
+let AC=null,sound=true;
+try{if(localStorage.getItem("snd")==="0")sound=false}catch(e){}
+$("snd").textContent=sound?"🔊":"🔇";
+function actx(){if(!sound)return null;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state==="suspended")AC.resume();return AC}catch(e){return null}}
+function tone(f,t0,d,type,vol){const c=actx();if(!c)return;const o=c.createOscillator(),g=c.createGain(),t=c.currentTime+t0;o.type=type||"sine";o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(vol||.07,t+.015);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+d+.03)}
+const NOTE=[0,392,494,587,698,880];
+function starSound(n){tone(NOTE[n],0,.28,"triangle",.09);if(n>=4)tone(NOTE[n]*1.5,.07,.3,"sine",.05);if(n===5)[1047,1319,1568].forEach((f,i)=>tone(f,.12+i*.07,.35,"sine",.05))}
+const tick=()=>tone(740,0,.07,"triangle",.05);
+const readySound=()=>{tone(880,0,.15,"sine",.06);tone(1175,.1,.25,"sine",.06)};
+const fanfare=()=>{[523,659,784,1047].forEach((f,i)=>tone(f,i*.11,.4,"triangle",.09));[1319,1568,2093].forEach((f,i)=>tone(f,.5+i*.08,.5,"sine",.05))};
+$("snd").onclick=()=>{sound=!sound;$("snd").textContent=sound?"🔊":"🔇";try{localStorage.setItem("snd",sound?"1":"0")}catch(e){}if(sound)tick()};
+
+/* ---------- ความคืบหน้า ---------- */
+$("total").textContent=REQUIRED.length;
+let ready=false;
+function refresh(key){
+  const box=document.querySelector('[data-key="'+key+'"]');
+  if(box)box.closest(".q").classList.add("done");
+  const d=REQUIRED.filter(k=>ans[k]).length;
+  $("fill").style.width=(d/REQUIRED.length*100)+"%";
+  $("ptxt").innerHTML="ตอบแล้ว <b>"+d+"</b>/"+REQUIRED.length+" ข้อ";
+  if(d===REQUIRED.length&&!ready){ready=true;$("bar").classList.add("full");$("send").classList.add("ready");setTimeout(readySound,250)}
+}
+function burst(btn,n){for(let i=0;i<n*2+2;i++){const s=document.createElement("i");s.className="sp";s.textContent=i%2?"✦":"★";const a=Math.random()*6.28,r=28+Math.random()*32;s.style.setProperty("--dx",Math.cos(a)*r+"px");s.style.setProperty("--dy",Math.sin(a)*r+"px");btn.appendChild(s);setTimeout(()=>s.remove(),750)}}
+
+/* ---------- ส่งข้อมูลไป Apps Script ---------- */
+$("f").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const err=$("err"),send=$("send");
+  const name=$("name").value.trim();
+  if(!name){err.textContent="กรุณากรอกชื่อ - นามสกุล";$("name").focus();return}
+  if(REQUIRED.some(k=>!ans[k])){err.textContent="กรุณาตอบข้อที่จำเป็นให้ครบ";return}
+  err.textContent="";send.disabled=true;send.textContent="กำลังส่ง...";
+
+  const scores={};
+  SCORE_Q.forEach(k=>scores[k]=ans[k]);
+  const payload={
+    name,
+    studentId:($("sid").value.trim()||"-"),
+    role:ans.role,
+    scores,
+    strengths:$("strengths").value.trim(),
+    suggestions:$("suggestions").value.trim()
+  };
+
+  try{
+    await fetch(SCRIPT_URL,{
+      method:"POST",
+      mode:"no-cors",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify(payload)
+    });
+    const sc=SCORE_Q.map(k=>ans[k]);
+    $("avg").textContent="★ "+(sc.reduce((a,b)=>a+b,0)/sc.length).toFixed(1)+" / 5 คะแนนเฉลี่ยที่ท่านให้";
+    $("f").style.display="none";$("bar").style.display="none";$("thanks").style.display="block";
+    window.scrollTo({top:0,behavior:"smooth"});fanfare();celebrate();
+  }catch(x){
+    err.textContent="ส่งไม่สำเร็จ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง";
+    send.disabled=false;send.textContent="ส่งแบบประเมิน";
+  }
+});
+
+/* ---------- พลุกระดาษ ---------- */
+function celebrate(){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  const cv=$("cv"),ctx=cv.getContext("2d");cv.width=innerWidth;cv.height=innerHeight;
+  const col=["#9b3432","#f0b429","#ffffff","#4aa3df","#e8744f","#2e9d5b"],bits=[];
+  const add=(x,dir,delay)=>{for(let i=0;i<90;i++)bits.push({x,y:cv.height*.45,vx:dir*(Math.random()*10+2)+(Math.random()-.5)*6,vy:Math.random()*-15-4,s:6+Math.random()*6,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:col[i%col.length],w:delay})};
+  add(cv.width*.1,1,0);add(cv.width*.9,-1,0);add(cv.width*.5,0,18);
+  let t=0;(function tick(){ctx.clearRect(0,0,cv.width,cv.height);
+    bits.forEach(p=>{if(t<p.w)return;p.vy+=.32;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.c;ctx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);ctx.restore()});
+    if(++t<260)requestAnimationFrame(tick);else ctx.clearRect(0,0,cv.width,cv.height)})();
+}
 </script>
 </body>
 </html>
