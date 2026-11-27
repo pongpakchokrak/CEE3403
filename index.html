@@ -6,7 +6,7 @@
 <title>แบบประเมินสื่อการสอนคณิตศาสตร์ McDonald's | CEE3403</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--yellow:#FFC72C;--yellow-d:#F2B705;--yellow-t:#FFF6D6;--red:#DA291C;--red-d:#B71C12;--ink:#2a1d14;--muted:#6b5b4e;--line:#f0e4c4;--bg:#FFFBF0;--green:#2e9d5b}
 *{box-sizing:border-box}
@@ -18,37 +18,41 @@ header{position:relative;overflow:hidden;background:linear-gradient(135deg,var(-
 header::before,header::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
 header::before{width:260px;height:260px;right:-70px;top:-120px;background:radial-gradient(circle,#FFC72C66,transparent 68%)}
 header::after{width:220px;height:220px;left:-80px;bottom:-130px;background:radial-gradient(circle,#ffffff22,transparent 68%)}
-header h1{position:relative;margin:0 0 6px;font-size:1.7rem;font-weight:700;line-height:1.25}
-header p{position:relative;margin:0;opacity:.95;font-size:1.02rem;line-height:1.5}
+.hpat{position:absolute;inset:0;display:flex;flex-wrap:wrap;align-content:flex-start;justify-content:space-around;overflow:hidden;pointer-events:none}
+.hpat i{flex:none;width:54px;height:54px;display:grid;place-items:center;font-style:normal;font-size:1.7rem;line-height:1;opacity:.17;animation:bob 5s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-6px) rotate(calc(var(--r) + 8deg))}}
+header h1,header p{text-shadow:0 1px 6px rgba(120,10,0,.45)}
+header h1{position:relative;z-index:3;margin:0 0 6px;font-size:1.7rem;font-weight:600;line-height:1.25}
+header p{position:relative;z-index:3;margin:0;opacity:.95;font-size:1.02rem;line-height:1.5}
 header p::before{content:"";display:block;width:44px;height:3px;border-radius:3px;background:var(--yellow);margin:0 auto 10px}
 
-main{position:relative;width:min(620px,calc(100% - 24px));margin:-34px auto 44px;background:#fff;border-radius:22px;padding:14px 24px 28px;box-shadow:0 10px 32px rgba(120,60,0,.15)}
+main{position:relative;width:min(620px,calc(100% - 24px));margin:-34px auto 44px;z-index:2;background:rgba(255,255,255,.88);border-radius:22px;padding:14px 24px 28px;box-shadow:0 10px 32px rgba(120,60,0,.15)}
 
 .bar{position:sticky;top:10px;z-index:5;display:flex;align-items:center;gap:12px;margin:0 0 6px;padding:11px 14px 12px 16px;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;box-shadow:0 4px 14px rgba(120,60,0,.1)}
 .prog{flex:1;min-width:0}
-#ptxt{display:block;white-space:nowrap;font-size:1.05rem;font-weight:700;color:var(--muted);line-height:1.35;margin-bottom:7px}
-#ptxt b{color:var(--red);font-size:1.2rem}
+#ptxt{display:block;white-space:nowrap;font-size:1.05rem;font-weight:500;color:var(--muted);line-height:1.35;margin-bottom:7px}
+#ptxt b{font-weight:600;color:var(--red);font-size:1.2rem}
 .track{position:relative;height:8px;background:#f5ecd2;border-radius:8px;overflow:hidden}
 .fill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--yellow),#FFA400 60%,var(--red));transition:width .45s cubic-bezier(.3,1.2,.5,1)}
 .bar.full .fill{background:linear-gradient(90deg,#46b878,var(--green))}
 #snd{flex:none;display:grid;place-items:center;width:38px;height:38px;border:1.5px solid var(--line);background:#fff;border-radius:50%;font-size:1.1rem;line-height:1;padding:0;cursor:pointer;transition:background .15s,transform .15s}
 #snd:hover{background:var(--yellow-t);transform:scale(1.06)}
 
-.section-title{margin:18px 0 4px;padding:10px 14px;background:var(--yellow);color:#3d1f00;border-radius:12px;font-weight:700;font-size:1.1rem;line-height:1.4}
-.sub-title{margin:14px 0 2px;color:var(--red);font-weight:700;font-size:1.05rem}
+.section-title{margin:18px 0 4px;padding:10px 14px;background:var(--yellow);color:#3d1f00;border-radius:12px;font-weight:600;font-size:1.1rem;line-height:1.4}
+.sub-title{margin:14px 0 2px;color:var(--red);font-weight:600;font-size:1.05rem}
 
 .legend{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 6px;padding:10px 12px;background:var(--yellow-t);border:1px solid var(--line);border-radius:12px;font-size:1rem;line-height:1.5}
 .legend span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:2px 10px;white-space:nowrap}
-.legend b{color:var(--red)}
+.legend b{color:var(--red);font-weight:500}
 
 form{counter-reset:q}
 .q{position:relative;counter-increment:q;padding:16px 0 18px 2.6rem;border-bottom:1px solid var(--line)}
 .q:last-of-type{border-bottom:0}
 .q::before{content:counter(q);position:absolute;left:0;top:1.05rem;width:1.75rem;height:1.75rem;border-radius:50%;background:var(--yellow-t);color:var(--red);font-weight:700;line-height:1.75rem;text-align:center;transition:background .25s,color .25s}
-.q.done::before{content:"✓";background:var(--green);color:#fff;animation:pop .5s cubic-bezier(.3,1.8,.5,1)}
+.q.done::before{content:"🍔";background:var(--yellow-t);font-size:1.1rem;animation:pop .5s cubic-bezier(.3,1.8,.5,1)}
 .q.cm{counter-increment:none;border-bottom:0;padding-left:0}
 .q.cm::before{content:none}
-.lbl,.q label{display:block;font-weight:700;font-size:1.15rem;line-height:1.4;margin-bottom:9px;padding-top:2px}
+.lbl,.q label{display:block;font-weight:600;font-size:1.15rem;line-height:1.4;margin-bottom:9px;padding-top:2px}
 .opt{color:var(--muted);font-weight:400;font-size:1rem}
 
 .chips{display:flex;flex-wrap:wrap;gap:7px}
@@ -59,13 +63,13 @@ form{counter-reset:q}
 .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .scale button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:64px;padding:6px 2px;border:1.5px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;color:var(--ink);transition:transform .15s,background .15s,border-color .15s,box-shadow .15s}
 .scale button:hover{border-color:var(--yellow-d);background:var(--yellow-t)}
-.scale button .n{font-size:1.4rem;font-weight:700;line-height:1.1}
+.scale button .n{font-size:1.4rem;font-weight:500;line-height:1.1}
 .scale button .t{font-size:.8rem;color:var(--muted);line-height:1.2;text-align:center}
 .scale button.on{background:var(--yellow);border-color:var(--yellow-d);color:#3d1f00;transform:scale(1.05);box-shadow:0 4px 12px rgba(242,183,5,.45)}
 .scale button.on .t{color:#3d1f00}
 .scale button.on .n{color:var(--red)}
 .scale button.pop{animation:pop .45s cubic-bezier(.3,1.8,.5,1)}
-.hint{min-height:1.5em;font-size:1rem;color:var(--red);font-weight:700;line-height:1.5;margin-top:6px}
+.hint{min-height:1.5em;font-size:1rem;color:var(--red);font-weight:400;line-height:1.5;margin-top:6px}
 
 @keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.4) rotate(-8deg)}100%{transform:scale(1)}}
 .sp{position:absolute;left:50%;top:50%;font-style:normal;font-size:.95rem;color:var(--yellow-d);pointer-events:none;animation:fly .7s ease-out forwards}
@@ -95,7 +99,15 @@ input:focus,textarea:focus,button:focus-visible{outline:3px solid #FFC72C88;outl
 #sync button{margin-left:8px;padding:2px 14px;font-size:1rem;border:1.5px solid var(--red);border-radius:99px;background:#fff;color:var(--red);font-weight:700;cursor:pointer}
 canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9}
 
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+#bgpat{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+#bgpat .rail{position:absolute;left:0;right:0;top:-400px;display:flex;flex-wrap:wrap;align-content:flex-start;justify-content:space-around;animation:slide 50s linear infinite;will-change:transform}
+@keyframes slide{from{transform:translateY(0)}to{transform:translateY(400px)}}
+#bgpat i{flex:none;width:80px;height:80px;display:grid;place-items:center;font-style:normal;font-size:2.2rem;line-height:1;opacity:.26;transform:rotate(var(--r))}
+#fall{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;z-index:0}
+form,#thanks{position:relative;z-index:1}
+#fall i{position:absolute;left:0;top:0;font-style:normal;line-height:1;opacity:.55;animation:drop linear infinite;will-change:transform}
+@keyframes drop{from{transform:translateY(-70px) rotate(-15deg)}to{transform:translateY(var(--h,900px)) rotate(25deg)}}
+@media (prefers-reduced-motion:reduce){#fall{display:none}*{animation:none!important;transition:none!important}}
 
 /* มือถือ: หัวเรื่องและรายวิชาแสดงบรรทัดละ 1 (รวม 2 บรรทัดต่อส่วน) */
 @media (max-width:480px){
@@ -133,12 +145,15 @@ canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index
 </style>
 </head>
 <body>
+<div id="bgpat" aria-hidden="true"></div>
 <header>
+  <div class="hpat" id="hpat" aria-hidden="true"></div>
   <h1>แบบลงทะเบียนและประเมินความพึงพอใจ<br>การเข้าชมนิทรรศการสื่อการสอน</h1>
-  <p>รายวิชา CEE3403 · สื่อการสอนคณิตศาสตร์ เรื่อง McDonald's<br>การบวกจำนวนนับไม่เกิน 1000 (ป.2)</p>
+  <p>รายวิชา CEE3403 · สื่อการสอนคณิตศาสตร์ เรื่อง McDonald's<br>การบวกจำนวนนับไม่เกิน 100 (ป.2)</p>
 </header>
 
 <main>
+<div id="fall" aria-hidden="true"></div>
 <div class="bar" id="bar">
   <div class="prog">
     <div id="ptxt">ตอบแล้ว <b>0</b>/<span id="total">0</span> ข้อ</div>
@@ -149,8 +164,8 @@ canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index
 
 <form id="f" novalidate>
   <div class="section-title">ส่วนที่ 1 : ข้อมูลทั่วไปของผู้ประเมิน</div>
-  <div class="q w" data-key="name"><label for="name">ชื่อ - นามสกุล</label><input type="text" id="name" placeholder="เช่น พงศ์ภัค คนสวย" autocomplete="name"></div>
-  <div class="q w" data-key="sid"><label for="sid">รหัสนักศึกษา <span class="opt">(อาจารย์/บุคคลภายนอก ให้ใส่ - )</span></label><input type="text" id="sid" placeholder="เช่น 6704000000"></div>
+  <div class="q w" data-key="name"><label for="name">ชื่อ - นามสกุล</label><input type="text" id="name" placeholder="เช่น สมหญิง ใจดี" autocomplete="name"></div>
+  <div class="q w" data-key="sid"><label for="sid">รหัสนักศึกษา <span class="opt">(อาจารย์/บุคคลภายนอก ให้ใส่ - )</span></label><input type="text" id="sid" placeholder="เช่น 6501234567"></div>
   <div class="q w"><span class="lbl">ท่านเข้าร่วมชมนิทรรศการในฐานะใด? <span class="opt">(เลือก 1 ข้อ)</span></span><div class="chips" data-key="role" role="radiogroup" aria-label="ฐานะ"></div></div>
 
   <div class="section-title">ส่วนที่ 2 : ความพึงพอใจต่อผลงานสื่อการสอน</div>
@@ -159,7 +174,7 @@ canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index
   </div>
 
   <div class="sub-title w">ด้านเนื้อหาและการนำไปใช้จัดการเรียนรู้</div>
-  <div class="q"><span class="lbl">ความถูกต้องของเนื้อหาเรื่องการบวกจำนวนนับไม่เกิน 100 และความเหมาะสมกับระดับชั้นประถมศึกษาปีที่ 2</span><div class="scale" data-key="q1" role="radiogroup"></div><div class="hint"></div></div>
+  <div class="q"><span class="lbl">ความถูกต้องของเนื้อหาเรื่องการบวกจำนวนนับไม่เกิน 1000 และความเหมาะสมกับระดับชั้นประถมศึกษาปีที่ 2</span><div class="scale" data-key="q1" role="radiogroup"></div><div class="hint"></div></div>
   <div class="q"><span class="lbl">การเชื่อมโยงสถานการณ์จำลอง (ร้าน McDonald's) ช่วยให้ผู้เรียนเข้าใจแนวคิดการบวกได้ง่ายขึ้น</span><div class="scale" data-key="q2" role="radiogroup"></div><div class="hint"></div></div>
   <div class="q"><span class="lbl">สื่อการสอนสามารถดึงดูดความสนใจ กระตุ้นการมีส่วนร่วม และสร้างความสนุกสนานในการเรียนรู้</span><div class="scale" data-key="q3" role="radiogroup"></div><div class="hint"></div></div>
   <div class="q"><span class="lbl">สามารถนำไปประยุกต์ใช้จัดกิจกรรมการเรียนรู้ในชั้นเรียนจริงได้อย่างมีประสิทธิภาพ</span><div class="scale" data-key="q4" role="radiogroup"></div><div class="hint"></div></div>
@@ -178,7 +193,7 @@ canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index
 </form>
 
 <section id="thanks" aria-live="polite">
-  <span class="big">🎉</span>
+  <span class="big">🍔</span>
   <h2>ขอบคุณค่ะ!</h2>
   <div id="avg"></div>
   <p>ขอบคุณที่ร่วมแสดงความคิดเห็น จะนำไปใช้พัฒนาสื่อการสอนต่อไป</p>
@@ -313,16 +328,74 @@ async function postData(payload,tries=0){
   }
 }
 
-/* ---------- พลุกระดาษ (สีเหลือง-แดง) ---------- */
+/* ---------- ลายของกินบนหัวสีแดง ---------- */
+function buildPattern(){
+  const h=document.querySelector("header"),box=$("hpat"),E=["🍔","🍟","🍗","🥤","🍦"];
+  const cols=Math.max(1,Math.floor(h.offsetWidth/54)),rows=Math.ceil(h.offsetHeight/54),n=cols*rows;
+  box.textContent="";
+  for(let i=0;i<n;i++){
+    const e=document.createElement("i");
+    e.textContent=E[(i+Math.floor(i/cols)*2)%E.length];   /* เลื่อนลำดับแต่ละแถวให้ลายไม่ซ้ำเป็นแนวตรง */
+    e.style.setProperty("--r",((i*37)%40-20)+"deg");
+    e.style.animationDelay=(-(i*0.7)%5)+"s";
+    box.appendChild(e);
+  }
+}
+function buildBg(){
+  const box=$("bgpat"),E=["🍔","🍟","🍗","🥤","🍦"];
+  const cols=Math.max(1,Math.floor(innerWidth/80)),rows=Math.ceil(innerHeight/80)+6;
+  const rail=document.createElement("div");rail.className="rail";
+  /* ลายซ้ำทุก 5 แถว (400px) ให้เลื่อนลงวนต่อเนื่องแบบเนียน ไม่กระตุก */
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+    const e=document.createElement("i");
+    e.textContent=E[(c+2*(r%5))%5];
+    e.style.setProperty("--r",((c*53+(r%5)*17)%50-25)+"deg");
+    rail.appendChild(e);
+  }
+  box.textContent="";box.appendChild(rail);
+}
+buildPattern();buildBg();
+let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{buildPattern();buildBg()},200)});
+
+/* ---------- ของกินตกลงมาเฉพาะเบื้องหลังกรอบฟอร์ม (ตั้งแต่ส่วนที่ 1 ลงล่าง) ---------- */
+function buildFall(){
+  const box=$("fall"),main=document.querySelector("main"),E=["🍔","🍟","🍗","🥤","🍦","🍔","🍟","🍗"];
+  const h=main.offsetHeight,n=Math.min(22,Math.max(6,Math.round(h/170)));
+  box.textContent="";box.style.setProperty("--h",h+"px");
+  /* แบ่งเป็น 3 ช่อง ซ้าย-กลาง-ขวา ให้ตกพร้อมกันกระจายทั่วกรอบ และเว้นจังหวะในแต่ละช่องให้สม่ำเสมอ */
+  const per=Math.ceil(n/3);
+  for(let i=0;i<n;i++){
+    const col=i%3,k=Math.floor(i/3);
+    const e=document.createElement("i");e.textContent=E[Math.floor(Math.random()*E.length)];
+    const dur=(h+70)/(50+Math.random()*25);
+    e.style.left=(col*33.3+2+Math.random()*24)+"%";
+    e.style.fontSize=(26+Math.random()*20)+"px";
+    e.style.animationDuration=dur+"s";
+    e.style.animationDelay=(-((k+Math.random()*0.7)/per)*dur)+"s";
+    box.appendChild(e);
+  }
+}
+buildFall();
+let fz;
+if(window.ResizeObserver)new ResizeObserver(()=>{clearTimeout(fz);fz=setTimeout(buildFall,250)}).observe(document.querySelector("main"));
+
+/* ---------- ฉลองตอนส่ง: เบอร์เกอร์ เฟรนช์ฟรายส์ ไก่ ฯลฯ พุ่งขึ้นมา ---------- */
 function celebrate(){
   if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
   const cv=$("cv"),ctx=cv.getContext("2d");cv.width=innerWidth;cv.height=innerHeight;
-  const col=["#DA291C","#FFC72C","#ffffff","#FFA400","#B71C12","#2e9d5b"],bits=[];
-  const add=(x,dir,delay)=>{for(let i=0;i<90;i++)bits.push({x,y:cv.height*.45,vx:dir*(Math.random()*10+2)+(Math.random()-.5)*6,vy:Math.random()*-15-4,s:6+Math.random()*6,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:col[i%col.length],w:delay})};
-  add(cv.width*.1,1,0);add(cv.width*.9,-1,0);add(cv.width*.5,0,18);
-  let t=0;(function tick(){ctx.clearRect(0,0,cv.width,cv.height);
-    bits.forEach(p=>{if(t<p.w)return;p.vy+=.32;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.c;ctx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);ctx.restore()});
-    if(++t<260)requestAnimationFrame(tick);else ctx.clearRect(0,0,cv.width,cv.height)})();
+  const food=["🍔","🍟","🍗","🥤","🍦","🍔","🍟","🍗"],col=["#DA291C","#FFC72C","#FFA400"],foods=[],conf=[];
+  const add=(x,dir,delay)=>{
+    for(let i=0;i<14;i++)foods.push({x,y:cv.height*.55,vx:dir*(Math.random()*8+1)+(Math.random()-.5)*6,vy:Math.random()*-15-7,s:30+Math.random()*22,r:(Math.random()-.5)*.6,vr:(Math.random()-.5)*.12,e:food[i%food.length],w:delay});
+    for(let i=0;i<30;i++)conf.push({x,y:cv.height*.55,vx:dir*(Math.random()*9+1)+(Math.random()-.5)*6,vy:Math.random()*-14-5,s:6+Math.random()*5,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:col[i%3],w:delay});
+  };
+  add(cv.width*.12,1,0);add(cv.width*.88,-1,0);add(cv.width*.5,0,14);add(cv.width*.5,0,32);
+  ctx.textAlign="center";ctx.textBaseline="middle";
+  let t=0;(function frame(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    conf.forEach(p=>{if(t<p.w)return;p.vy+=.3;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.c;ctx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);ctx.restore()});
+    foods.forEach(p=>{if(t<p.w)return;p.vy+=.26;p.vx*=.992;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.font=p.s+"px sans-serif";ctx.fillText(p.e,0,0);ctx.restore()});
+    if(++t<300)requestAnimationFrame(frame);else ctx.clearRect(0,0,cv.width,cv.height);
+  })();
 }
 </script>
 </body>
